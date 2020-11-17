@@ -15,7 +15,7 @@ export const Main = () => {
     (state) => state.quiz.currentQuestionIndex
   );
   
-  console.log(questionIndex, questions.length)
+ 
 
 
   return (
