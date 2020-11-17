@@ -23,4 +23,4 @@ export const Answer = ({ answer, index, questionId }) => {
   );
 };
 
-//() => dispatch(quiz.actions.goToNextQuestion())
+
