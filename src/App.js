@@ -8,17 +8,21 @@ import { Main } from 'components/Main';
 import { Footer } from 'components/Footer';
 
 const reducer = combineReducers({
-  quiz: quiz.reducer
+    quiz: quiz.reducer
 })
 
 const store = configureStore({ reducer })
 
 export const App = () => {
-  return (
-    <Provider store={store}>
-      <Header />
-      <Main />
-      <Footer />
-    </Provider>
-  )
+    return ( <
+        Provider store = { store } >
+        <
+        Header / >
+        <
+        Main / >
+        <
+        Footer / >
+        <
+        /Provider>
+    )
 }
