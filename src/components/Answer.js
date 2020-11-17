@@ -1,54 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import { quiz } from '../reducers/quiz';
 import styled from 'styled-components';
 
-export const Answer = ({ answer, index, questionId }) => {
+export const Answer = ({ answer, index, questionId, correctAnswer }) => {
+  const [borderColor, setBorderColor] = useState('black');
   const dispatch = useDispatch();
+  // let borderColor = 'white';
 
-  const answerValue = useSelector(
-    (state) => state.quiz.answers
-  );
+  // const answerValue = useSelector((state) => state.quiz.answers);
 
-  const onNext = () => {
+  const onAnswerSelect = () => {
     dispatch(
       quiz.actions.submitAnswer({
         questionId: questionId,
         answerIndex: index,
-      }));
-    if (answerValue.length > 0) {
-      console.log('I EXIST')
-      console.log(answerValue)
+      })
+    );
+
+    if (index === correctAnswer) {
+      setBorderColor('green');
     } else {
-      console.log('NO')
+      setBorderColor('red');
     }
-    checkAnswer();
-  }
-  const checkAnswer = (index) => {
-    console.log(answerValue)
-    
-    // if (answerValue[questionId - 1].isCorrect) {
-    //    console.log ('correct')
-    // }
-  }
+  };
+
   return (
     <div>
-      <AnswerButton 
-        onClick={() => onNext()}
-      >
+      <AnswerButton borderColor={borderColor} onClick={onAnswerSelect}>
         {answer}
       </AnswerButton>
-
     </div>
-
-
   );
 };
 
 const AnswerButton = styled.button`
-background-color: red
+  border: 5px solid
+    ${(props) =>
+      props.borderColor === 'black'
+        ? 'black'
+        : props.borderColor === 'green'
+        ? 'green'
+        : 'red'};
 `;
-
-

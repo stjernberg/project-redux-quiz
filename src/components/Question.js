@@ -10,6 +10,8 @@ export const Question = () => {
 
   const answers = question.options;
   const id = question.id;
+  const correctAnswer = question.correctAnswerIndex;
+  console.log(question);
 
   if (!question) {
     return <h1> Oh no!I could not find the current question! </h1>;
@@ -20,7 +22,13 @@ export const Question = () => {
       <h1> Question: {question.questionText} </h1>
       {answers.map((answer, index) => {
         return (
-          <Answer key={index} answer={answer} index={index} questionId={id} />
+          <Answer
+            key={index}
+            answer={answer}
+            index={index}
+            questionId={id}
+            correctAnswer={correctAnswer}
+          />
         );
       })}
     </>
