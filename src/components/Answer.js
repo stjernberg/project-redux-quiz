@@ -1,11 +1,26 @@
 import React from 'react';
+
+import { useDispatch } from 'react-redux';
 import { quiz } from '../reducers/quiz';
 
-
-export const Answer = () => {
+export const Answer = ({ answer, index, questionId }) => {
+  const dispatch = useDispatch();
   return (
     <div>
-      <p>hej</p>
+      <button
+        onClick={() =>
+          dispatch(
+            quiz.actions.submitAnswer({
+              questionId: questionId,
+              answerIndex: index,
+            })
+          )
+        }
+      >
+        {answer}
+      </button>
     </div>
-  )
-}
+  );
+};
+
+//() => dispatch(quiz.actions.goToNextQuestion())
