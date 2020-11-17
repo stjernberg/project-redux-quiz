@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-export const CurrentQuestion = () => {
+export const Main = () => {
   const question = useSelector((state) => state.quiz.questions[state.quiz.currentQuestionIndex])
 
   if (!question) {
