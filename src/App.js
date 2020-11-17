@@ -14,15 +14,11 @@ const reducer = combineReducers({
 const store = configureStore({ reducer })
 
 export const App = () => {
-    return ( <
-        Provider store = { store } >
-        <
-        Header / >
-        <
-        Main / >
-        <
-        Footer / >
-        <
-        /Provider>
+    return ( 
+      <Provider store = { store }>
+        <Header />
+        <Main />
+        <Footer />
+      </Provider>
     )
 }
