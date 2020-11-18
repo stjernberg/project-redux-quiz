@@ -19,7 +19,6 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <LogoImg src={process.env.PUBLIC_URL + '/images/logo-white.png'} />
-      {/* <h1>Harry Potter Quiz</h1> */}
     </HeaderWrapper>
   );
 };

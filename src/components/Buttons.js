@@ -7,11 +7,7 @@ import { NavButton } from '../styling/styling';
 
 // ----------------------------------------------------------------
 
-export const Button = ({
-  title,
-  wasCorrectAnswerSelected,
-  setWasCorrectAnswerSelected,
-}) => {
+export const Button = ({ title, setWasCorrectAnswerSelected }) => {
   // const [borderColor, setBorderColor] = useState('black');
   const dispatch = useDispatch();
   // const handleClick = () => {
@@ -29,11 +25,7 @@ export const Button = ({
   );
 };
 
-export const SubmitButton = ({
-  title,
-  wasCorrectAnswerSelected,
-  setWasCorrectAnswerSelected,
-}) => {
+export const SubmitButton = ({ title }) => {
   // const [borderColor, setBorderColor] = useState('black');
   const dispatch = useDispatch();
   // const handleClick = () => {

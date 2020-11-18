@@ -6,7 +6,7 @@ import { Summary } from './Summary';
 import { SubmitButton } from './Buttons';
 
 // Styling
-import { ButtonsWrapper } from '../styling/styling';
+import { ButtonsWrapper, Counter } from '../styling/styling';
 
 // ----------------------------------------------------------------
 
@@ -21,6 +21,7 @@ export const Main = () => {
 
   // Fetches index of current question
   const questionIndex = useSelector((state) => state.quiz.currentQuestionIndex);
+  const whatQuestion = questionIndex + 1;
 
   return (
     <>
@@ -36,11 +37,17 @@ export const Main = () => {
           (questionIndex === questions.length - 1 ? (
             <SubmitButton title="Submit" />
           ) : (
-            <Button
-              title="Next"
-              wasCorrectAnswerSelected={wasCorrectAnswerSelected}
-              setWasCorrectAnswerSelected={setWasCorrectAnswerSelected}
-            />
+            <>
+              <Button
+                title="Next Question >"
+                wasCorrectAnswerSelected={wasCorrectAnswerSelected}
+                setWasCorrectAnswerSelected={setWasCorrectAnswerSelected}
+              />
+
+              <Counter>
+                Question {whatQuestion} / {questions.length}
+              </Counter>
+            </>
           ))}
       </ButtonsWrapper>
       {quizState && (
