@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-
 import { quiz } from '../reducers/quiz';
-import styled from 'styled-components';
+
+// Styling
 import { AnswerButton } from '../styling/styling';
+
+// ----------------------------------------------------------------
 
 export const Answer = ({
   answer,
@@ -28,7 +30,6 @@ export const Answer = ({
       // find correct answer and set to green
       if (answerIndex === correctAnswer) {
         setBorderColor('green');
-        console.log('Setting border color to green');
       }
     }
   });
@@ -53,10 +54,8 @@ export const Answer = ({
   };
 
   return (
-    <div>
-      <AnswerButton borderColor={borderColor} onClick={onAnswerSelect}>
-        {answer}
-      </AnswerButton>
-    </div>
+    <AnswerButton borderColor={borderColor} onClick={onAnswerSelect}>
+      {answer}
+    </AnswerButton>
   );
 };

@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { quiz } from '../reducers/quiz';
+
+// Styling
+import { NavButton } from '../styling/styling';
+
+// ----------------------------------------------------------------
 
 export const Button = ({
   title,
@@ -14,14 +18,14 @@ export const Button = ({
 
   // }
   return (
-    <button
+    <NavButton
       onClick={() => {
         dispatch(quiz.actions.goToNextQuestion());
         setWasCorrectAnswerSelected(null);
       }}
     >
       {title}
-    </button>
+    </NavButton>
   );
 };
 
@@ -36,29 +40,27 @@ export const SubmitButton = ({
 
   // }
   return (
-    <button
+    <NavButton
       onClick={() => {
         dispatch(quiz.actions.goToNextQuestion());
       }}
     >
       {title}
-    </button>
+    </NavButton>
   );
 };
 
-export const ResetButton = ({title, setWasCorrectAnswerSelected}) => {
+export const ResetButton = ({ title, setWasCorrectAnswerSelected }) => {
   const dispatch = useDispatch();
 
   return (
-    <button
+    <NavButton
       onClick={() => {
         dispatch(quiz.actions.restart());
         setWasCorrectAnswerSelected(null);
-        
       }}
     >
       {title}
-    </button>
+    </NavButton>
   );
 };
-

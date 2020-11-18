@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { Question } from './Question';
-import { Button } from './Button';
+import { Button } from './Buttons';
 import { useSelector } from 'react-redux';
 import { Summary } from './Summary';
-import { SubmitButton } from './Button';
+import { SubmitButton } from './Buttons';
+
+// Styling
+import { ButtonsWrapper } from '../styling/styling';
+
+// ----------------------------------------------------------------
 
 export const Main = () => {
   const quizState = useSelector((state) => state.quiz.quizOver);
@@ -26,16 +31,21 @@ export const Main = () => {
         />
       )}
       {/* Compares index and length of array to check if it is the last question, if true show submit */}
-      {!quizState && (questionIndex === questions.length - 1 ? (
-        <SubmitButton title="Submit" />
-      ) : (
-        <Button
-          title="Next"
-          wasCorrectAnswerSelected={wasCorrectAnswerSelected}
-          setWasCorrectAnswerSelected={setWasCorrectAnswerSelected}
-        />
-      ))}
-      {quizState && <Summary setWasCorrectAnswerSelected={setWasCorrectAnswerSelected} />}
+      <ButtonsWrapper>
+        {!quizState &&
+          (questionIndex === questions.length - 1 ? (
+            <SubmitButton title="Submit" />
+          ) : (
+            <Button
+              title="Next"
+              wasCorrectAnswerSelected={wasCorrectAnswerSelected}
+              setWasCorrectAnswerSelected={setWasCorrectAnswerSelected}
+            />
+          ))}
+      </ButtonsWrapper>
+      {quizState && (
+        <Summary setWasCorrectAnswerSelected={setWasCorrectAnswerSelected} />
+      )}
     </>
   );
 };
