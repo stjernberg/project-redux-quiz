@@ -5,8 +5,9 @@ import { useSelector } from 'react-redux';
 import { Summary } from './Summary';
 
 
-
 export const Main = () => {
+
+const quizState = useSelector(state=>state.quiz.quizOver)
 
   // Fetches questions array
   const questions = useSelector(
@@ -18,15 +19,12 @@ export const Main = () => {
     (state) => state.quiz.currentQuestionIndex
   );
   
- 
-
-
   return (
     <>
-      <Question />
+      {!quizState && <Question />}
       {/* Compares index and length of array to check if it is the last question, if true show submit */}
       {questionIndex === questions.length - 1 ? <Button title="Submit" /> : <Button title="Next" />} 
-      <Summary />
+      {quizState && <Summary />}
     </>
   );
 };
