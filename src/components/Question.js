@@ -3,9 +3,11 @@ import { useSelector } from 'react-redux';
 
 import { Answer } from './Answer';
 
-export const Question = () => {
+export const Question = ({
+  wasCorrectAnswerSelected,
+  setWasCorrectAnswerSelected,
+}) => {
   // state to check if user selected the right answer
-  const [wasCorrectAnswerSelected, setWasCorrectAnswerSelected] = useState(null);
   const question = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
@@ -13,7 +15,6 @@ export const Question = () => {
   const answers = question.options;
   const id = question.id;
   const correctAnswer = question.correctAnswerIndex;
-
 
   if (!question) {
     return <h1> Oh no!I could not find the current question! </h1>;
@@ -30,7 +31,7 @@ export const Question = () => {
             answerIndex={answerIndex}
             questionId={id}
             correctAnswer={correctAnswer}
-            border='black'
+            border="black"
             isCorrectAnswer={wasCorrectAnswerSelected}
             setCorrectAnswer={setWasCorrectAnswerSelected}
           />
