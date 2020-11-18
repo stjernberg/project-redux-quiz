@@ -2,6 +2,8 @@ import React from 'react';
 import { Question } from './Question';
 import { Button } from './Button';
 import { useSelector } from 'react-redux';
+import { Summary } from './Summary';
+
 
 
 export const Main = () => {
@@ -24,7 +26,7 @@ export const Main = () => {
       <Question />
       {/* Compares index and length of array to check if it is the last question, if true show submit */}
       {questionIndex === questions.length - 1 ? <Button title="Submit" /> : <Button title="Next" />} 
-
+      <Summary />
     </>
   );
 };

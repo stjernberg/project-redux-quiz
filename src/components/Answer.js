@@ -8,7 +8,7 @@ import { AnswerButton } from '../styling/styling';
 export const Answer = ({ answer, answerIndex, questionId, correctAnswer, border, isCorrectAnswer, setCorrectAnswer }) => {
   const [borderColor, setBorderColor] = useState(border);
   const dispatch = useDispatch();
-  console.log('Bordercolor', borderColor)
+
 
   useEffect(() => {
         setBorderColor('black')
@@ -16,7 +16,7 @@ export const Answer = ({ answer, answerIndex, questionId, correctAnswer, border,
 
   // Triggers when user clicks an answer
   useEffect(() => {
-    console.log('correct answer was set')
+   
     // If correctAnswer is false...
     if (isCorrectAnswer === false) {
       // find correct answer and set to green

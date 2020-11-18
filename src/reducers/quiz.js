@@ -46,7 +46,7 @@ const questions = [
     correctAnswerIndex: 0,
   },
   {
-    id: 5,
+    id: 6,
     questionText:
       'What potion does Harry take to help him extract the memory he needs from professor Slughorn?',
     options: [
@@ -58,7 +58,7 @@ const questions = [
     correctAnswerIndex: 3,
   },
   {
-    id: 5,
+    id: 7,
     questionText: 'What is the name of Harry Potters best friend?',
     options: [
       'Neville Longbottom',
