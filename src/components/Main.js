@@ -3,6 +3,7 @@ import { Question } from './Question';
 import { Button } from './Button';
 import { useSelector } from 'react-redux';
 
+
 export const Main = () => {
 
   // Fetches questions array
