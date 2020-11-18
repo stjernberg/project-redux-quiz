@@ -2,6 +2,7 @@ import React from 'react';
 import { Question } from './Question';
 import { Button } from './Button';
 import { useSelector } from 'react-redux';
+import { ButtonsWrapper } from '../styling/styling';
 
 export const Main = () => {
   // Fetches questions array
@@ -13,12 +14,15 @@ export const Main = () => {
   return (
     <>
       <Question />
-      {/* Compares index and length of array to check if it is the last question, if true show submit */}
-      {questionIndex === questions.length - 1 ? (
-        <Button title="Submit" />
-      ) : (
-        <Button title="Next" />
-      )}
+
+      <ButtonsWrapper>
+        {/* Compares index and length of array to check if it is the last question, if true show submit */}
+        {questionIndex === questions.length - 1 ? (
+          <Button title="Submit" />
+        ) : (
+          <Button title="Next Question >" />
+        )}
+      </ButtonsWrapper>
     </>
   );
 };

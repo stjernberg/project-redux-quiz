@@ -18,12 +18,13 @@ export const QuestionText = styled.h1`
   text-align: center;
   color: #fff;
   max-width: 70%;
-  margin: auto;
+  margin: 30px auto;
+  min-height: 50px;
 `;
 
 // ANSWER -----------------------------------------------
 export const AnswerButton = styled.button`
-  border: 5px solid
+  border: 3px solid
     ${(props) =>
       props.borderColor === 'black'
         ? 'black'
@@ -33,6 +34,7 @@ export const AnswerButton = styled.button`
   width: calc(50% - 20px);
   padding: 20px;
   margin: 10px;
+  font-family: 'Lora';
 `;
 
 export const AnswersWrapper = styled.div`
@@ -41,10 +43,14 @@ export const AnswersWrapper = styled.div`
 `;
 
 // ANSWER -----------------------------------------------
-export const NavButton = styled.button`
-  padding: 20px 140px;
+export const ButtonsWrapper = styled.div`
   display: flex;
-  align-content: center;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const NavButton = styled(AnswerButton)`
+  border: none;
 `;
 
 // FOOTER -----------------------------------------------
