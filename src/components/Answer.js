@@ -32,7 +32,7 @@ export const Answer = ({
         setBorderColor('green');
       }
     }
-  });
+  }, [isCorrectAnswer, answerIndex, correctAnswer]);
 
   const onAnswerSelect = () => {
     dispatch(
