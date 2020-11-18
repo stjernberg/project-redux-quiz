@@ -11,17 +11,17 @@ export const Summary = () => {
 
   return (
     <div>
-        {answersArray.map(answer => {
-          return (
-            <div key={answer.questionId}> 
-              <h3>Question: {answer.question.questionText}</h3>
-              <p>
-                User answer: {answer.answer}
-              </p>
-              <p>
-                Correct answer: {answer.question.options[answer.question.correctAnswerIndex]}
-              </p>
-            </div>
+      {answersArray.map(answer => {
+        return (
+          <div key={answer.questionId}> 
+            <h3>Question: {answer.question.questionText}</h3>
+            <p>
+              User answer: {answer.answer}
+            </p>
+            <p>
+              Correct answer: {answer.question.options[answer.question.correctAnswerIndex]}
+            </p>
+          </div>
           )
         })}
         <p>
