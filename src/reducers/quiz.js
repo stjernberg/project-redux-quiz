@@ -55,7 +55,7 @@ const questions = [
       'Polyjuice Potion',
       'Felix Felicis',
     ],
-    correctAnswerIndex: 2,
+    correctAnswerIndex: 3,
   },
   {
     id: 5,
