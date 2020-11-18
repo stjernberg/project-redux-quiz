@@ -24,3 +24,41 @@ export const Button = ({
     </button>
   );
 };
+
+export const SubmitButton = ({
+  title,
+  wasCorrectAnswerSelected,
+  setWasCorrectAnswerSelected,
+}) => {
+  // const [borderColor, setBorderColor] = useState('black');
+  const dispatch = useDispatch();
+  // const handleClick = () => {
+
+  // }
+  return (
+    <button
+      onClick={() => {
+        dispatch(quiz.actions.goToNextQuestion());
+      }}
+    >
+      {title}
+    </button>
+  );
+};
+
+export const ResetButton = ({title, setWasCorrectAnswerSelected}) => {
+  const dispatch = useDispatch();
+
+  return (
+    <button
+      onClick={() => {
+        dispatch(quiz.actions.restart());
+        setWasCorrectAnswerSelected(null);
+        
+      }}
+    >
+      {title}
+    </button>
+  );
+};
+

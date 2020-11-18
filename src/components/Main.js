@@ -3,6 +3,7 @@ import { Question } from './Question';
 import { Button } from './Button';
 import { useSelector } from 'react-redux';
 import { Summary } from './Summary';
+import { SubmitButton } from './Button';
 
 export const Main = () => {
   const quizState = useSelector((state) => state.quiz.quizOver);
@@ -25,16 +26,16 @@ export const Main = () => {
         />
       )}
       {/* Compares index and length of array to check if it is the last question, if true show submit */}
-      {questionIndex === questions.length - 1 ? (
-        <Button title="Submit" />
+      {!quizState && (questionIndex === questions.length - 1 ? (
+        <SubmitButton title="Submit" />
       ) : (
         <Button
           title="Next"
           wasCorrectAnswerSelected={wasCorrectAnswerSelected}
           setWasCorrectAnswerSelected={setWasCorrectAnswerSelected}
         />
-      )}
-      {quizState && <Summary />}
+      ))}
+      {quizState && <Summary setWasCorrectAnswerSelected={setWasCorrectAnswerSelected} />}
     </>
   );
 };

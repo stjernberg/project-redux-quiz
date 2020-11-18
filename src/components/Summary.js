@@ -1,9 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Question } from './Question';
 import { useSelector } from 'react-redux';
+import { ResetButton } from './Button';
 
-export const Summary = () => {
+export const Summary = ({setWasCorrectAnswerSelected}) => {
   const answersArray = useSelector((state) => state.quiz.answers);
   const rightAnswersArray = answersArray.filter(answer => answer.isCorrect === true);
   //console.log(answersArray);
@@ -26,7 +25,8 @@ export const Summary = () => {
         })}
         <p>
           Your score was: {rightAnswersArray.length} of {answersArray.length}
-        </p>
+      </p>
+      {<ResetButton title="Reset Quiz" setWasCorrectAnswerSelected={setWasCorrectAnswerSelected} />}
     </div>
   )
 }
