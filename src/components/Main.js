@@ -35,7 +35,12 @@ export const Main = () => {
       <ButtonsWrapper>
         {!quizState &&
           (questionIndex === questions.length - 1 ? (
+          <>
             <SubmitButton title="Submit" />
+            <Counter>
+              Question {whatQuestion} / {questions.length}
+            </Counter>
+          </>
           ) : (
             <>
               <Button
@@ -43,7 +48,6 @@ export const Main = () => {
                 wasCorrectAnswerSelected={wasCorrectAnswerSelected}
                 setWasCorrectAnswerSelected={setWasCorrectAnswerSelected}
               />
-
               <Counter>
                 Question {whatQuestion} / {questions.length}
               </Counter>
