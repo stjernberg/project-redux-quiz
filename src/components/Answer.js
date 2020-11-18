@@ -5,26 +5,34 @@ import { quiz } from '../reducers/quiz';
 import styled from 'styled-components';
 import { AnswerButton } from '../styling/styling';
 
-export const Answer = ({ answer, answerIndex, questionId, correctAnswer, border, isCorrectAnswer, setCorrectAnswer }) => {
+export const Answer = ({
+  answer,
+  answerIndex,
+  questionId,
+  correctAnswer,
+  border,
+  isCorrectAnswer,
+  setCorrectAnswer,
+}) => {
   const [borderColor, setBorderColor] = useState(border);
   const dispatch = useDispatch();
-  console.log('Bordercolor', borderColor)
+  console.log('Bordercolor', borderColor);
 
   useEffect(() => {
-        setBorderColor('black')
-  }, [questionId])
+    setBorderColor('black');
+  }, [questionId]);
 
   // Triggers when user clicks an answer
   useEffect(() => {
-    console.log('correct answer was set')
+    console.log('correct answer was set');
     // If correctAnswer is false...
     if (isCorrectAnswer === false) {
       // find correct answer and set to green
       if (answerIndex === correctAnswer) {
-        setBorderColor('green')
+        setBorderColor('green');
       }
     }
-  })
+  });
 
   const onAnswerSelect = () => {
     dispatch(
@@ -46,12 +54,8 @@ export const Answer = ({ answer, answerIndex, questionId, correctAnswer, border,
   };
 
   return (
-    <div>
-      <AnswerButton borderColor={borderColor} onClick={onAnswerSelect}>
-        {answer}
-      </AnswerButton>
-    </div>
+    <AnswerButton borderColor={borderColor} onClick={onAnswerSelect}>
+      {answer}
+    </AnswerButton>
   );
 };
-
-

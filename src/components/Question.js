@@ -3,9 +3,13 @@ import { useSelector } from 'react-redux';
 
 import { Answer } from './Answer';
 
+import { QuestionText, AnswersWrapper } from '../styling/styling';
+
 export const Question = () => {
   // state to check if user selected the right answer
-  const [wasCorrectAnswerSelected, setWasCorrectAnswerSelected] = useState(null);
+  const [wasCorrectAnswerSelected, setWasCorrectAnswerSelected] = useState(
+    null
+  );
   const question = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
@@ -21,21 +25,23 @@ export const Question = () => {
 
   return (
     <>
-      <h1> Question: {question.questionText} </h1>
-      {answers.map((answer, answerIndex) => {
-        return (
-          <Answer
-            key={answerIndex}
-            answer={answer}
-            answerIndex={answerIndex}
-            questionId={id}
-            correctAnswer={correctAnswer}
-            border='black'
-            isCorrectAnswer={wasCorrectAnswerSelected}
-            setCorrectAnswer={setWasCorrectAnswerSelected}
-          />
-        );
-      })}
+      <QuestionText> Question: {question.questionText} </QuestionText>
+      <AnswersWrapper>
+        {answers.map((answer, answerIndex) => {
+          return (
+            <Answer
+              key={answerIndex}
+              answer={answer}
+              answerIndex={answerIndex}
+              questionId={id}
+              correctAnswer={correctAnswer}
+              border="black"
+              isCorrectAnswer={wasCorrectAnswerSelected}
+              setCorrectAnswer={setWasCorrectAnswerSelected}
+            />
+          );
+        })}
+      </AnswersWrapper>
     </>
   );
 };

@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
-
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
+
 import { quiz } from '../reducers/quiz';
 
+import { NavButton } from '../styling/styling';
 
 export const Button = ({ title }) => {
   // const [borderColor, setBorderColor] = useState('black');
@@ -11,6 +13,8 @@ export const Button = ({ title }) => {
 
   // }
   return (
-    <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>{title}</button>
-  )
-}
+    <NavButton onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
+      {title}
+    </NavButton>
+  );
+};
